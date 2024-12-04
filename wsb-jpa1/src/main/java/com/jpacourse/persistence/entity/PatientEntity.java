@@ -32,10 +32,15 @@ public class PatientEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "PATIENT_ID")
+	/* Relacja jednostronna od strony rodzica (PatientEntity).
+   Jeden pacjent może mieć wiele wizyt. Relacja kontrolowana jest przez PatientEntity
+   poprzez kolumnę PATIENT_ID w tabeli Visit. */
 	private List<VisitEntity> visits;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ID")
+	/* Relacja jednostronna od strony PatientEntity.
+   Pacjent może mieć przypisany jeden adres. */
 	private AddressEntity addressEntity;
 
 	public Long getId() {
