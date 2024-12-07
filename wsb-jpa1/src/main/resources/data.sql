@@ -1,4 +1,4 @@
--- Wstawienie danych do tabeli ADDRESS
+-- Insert data into ADDRESS table
 INSERT INTO ADDRESS (city, address_line1, address_line2, postal_code)
 VALUES
     ('Little Whinging', '4 Privet Drive', NULL, 'CR3 0AA'),
@@ -8,7 +8,7 @@ VALUES
     ('Hogsmeade', 'Snape’s Cottage', 'Spinner’s End', 'HS2 2AA'),
     ('Ottery St Catchpole', 'Lovegood House', NULL, 'EX11 1RQ');
 
--- Wstawienie danych do tabeli PATIENT
+-- Insert data into PATIENT table
 INSERT INTO PATIENT (first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id)
 VALUES
     ('Harry', 'Potter', '123456789', 'harry.potter@hogwarts.com', 'P001', '1980-07-31', 1),
@@ -18,14 +18,14 @@ VALUES
     ('Neville', 'Longbottom', '111222333', 'neville.longbottom@hogwarts.com', 'P005', '1980-07-30', 4),
     ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6);
 
--- Wstawienie danych do tabeli DOCTOR
+-- Insert data into DOCTOR table
 INSERT INTO DOCTOR (first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)
 VALUES
     ('Poppy', 'Pomfrey', '222333444', 'poppy.pomfrey@hogwarts.com', 'D001', 'Magic', 4),
     ('Albus', 'Dumbledore', '111222333', 'albus.dumbledore@hogwarts.com', 'D002', 'Magic', 4),
     ('Severus', 'Snape', '444555666', 'severus.snape@hogwarts.com', 'D003', 'Magic', 5);
 
--- Wstawienie danych do tabeli VISIT
+-- Insert data into VISIT table
 INSERT INTO VISIT (description, time, doctor_id, patient_id)
 VALUES
     ('Treatment for cursed wound', '2024-01-10 09:00:00', 1, 1),
@@ -35,7 +35,7 @@ VALUES
     ('Allergic reaction to Mandrake leaves', '2024-02-15 13:00:00', 3, 5),
     ('Headache from Wrackspurt infestation', '2024-03-01 12:00:00', 1, 6);
 
--- Wstawienie danych do tabeli MEDICAL_TREATMENT
+-- Insert data into MEDICAL_TREATMENT table
 INSERT INTO MEDICAL_TREATMENT (description, type)
 VALUES
     ('Application of Dittany for wound healing', 'Potion'),
@@ -45,7 +45,7 @@ VALUES
     ('Mandrake extract antidote', 'Potion'),
     ('Therapy for Wrackspurt removal', 'Therapy');
 
--- Wstawienie danych do tabeli pośredniej MEDICAL_TREATMENT_VISIT
+-- Link data between VISIT and MEDICAL_TREATMENT tables
 INSERT INTO visit_treatment (visit_id, treatment_id)
 VALUES
     (1, 1),
