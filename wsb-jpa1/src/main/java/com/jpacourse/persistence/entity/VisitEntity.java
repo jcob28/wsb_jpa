@@ -20,10 +20,16 @@ public class VisitEntity {
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "PATIENT_ID", nullable = false)
+	/* Relacja dwustronna z PatientEntity.
+   Jedna wizyta jest powiązana z jednym pacjentem,
+   ale pacjent może mieć wiele wizyt. Kontrola relacji jest po stronie VisitEntity. */
 	private PatientEntity patientEntity;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "DOCTOR_ID", nullable = false)
+	/* Relacja dwustronna z DoctorEntity.
+   Jedna wizyta jest powiązana z jednym lekarzem,
+   ale lekarz może mieć wiele wizyt. Kontrola relacji jest po stronie VisitEntity. */
 	private DoctorEntity doctorEntity;
 
 	@ManyToMany
@@ -32,6 +38,9 @@ public class VisitEntity {
 			joinColumns = @JoinColumn(name = "visit_id"),
 			inverseJoinColumns = @JoinColumn(name = "treatment_id")
 	)
+	/* Relacja dwustronna z MedicalTreatmentEntity.
+   Jedna wizyta może mieć wiele zabiegów, a jeden zabieg może być powiązany z wieloma wizytami.
+   Kontrola relacji jest po stronie VisitEntity. */
 	private List<MedicalTreatmentEntity> treatments;
 
 	public Long getId() {

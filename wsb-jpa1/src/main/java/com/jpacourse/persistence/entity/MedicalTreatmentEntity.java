@@ -21,6 +21,9 @@ public class MedicalTreatmentEntity {
 	private TreatmentType type;
 
 	@ManyToMany(mappedBy = "treatments")
+	/* Relacja dwustronna z VisitEntity.
+   Wiele procedur może być powiązanych z wieloma wizytami (relacja wiele-do-wielu).
+   Kontrola relacji jest po stronie VisitEntity. */
 	private Set<VisitEntity> visits;
 
 	public Long getId() {

@@ -22,9 +22,13 @@ public class AddressEntity {
 	private String postalCode;
 
 	@OneToOne(mappedBy = "addressEntity")
+	/* Relacja jednostronna od strony dziecka (PatientEntity).
+   Pacjent może mieć jeden przypisany adres. */
 	private PatientEntity patientEntity;
 
 	@OneToOne(mappedBy = "addressEntity")
+	/* Relacja jednostronna od strony dziecka (DoctorEntity).
+   Lekarz może mieć jeden przypisany adres. */
 	private DoctorEntity doctorEntity;
 
 	public Long getId() {

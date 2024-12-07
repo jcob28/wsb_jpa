@@ -32,10 +32,14 @@ public class DoctorEntity {
 	private Specialization specialization;
 
 	@OneToMany(mappedBy = "doctorEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+	/* Relacja dwustronna z VisitEntity.
+   Jeden lekarz może mieć wiele wizyt. Relacja kontrolowana jest od strony VisitEntity. */
 	private List<VisitEntity> visits;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ID")
+	/* Relacja jednostronna od strony DoctorEntity.
+   Lekarz może mieć przypisany jeden adres. */
 	private AddressEntity addressEntity;
 
 	public Long getId() {
