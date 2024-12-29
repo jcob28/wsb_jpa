@@ -2,6 +2,7 @@ package com.jpacourse.dto;
 
 import com.jpacourse.persistence.entity.AddressEntity;
 import com.jpacourse.persistence.entity.VisitEntity;
+import com.jpacourse.persistence.enums.Gender;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -26,6 +27,8 @@ public class PatientTO implements Serializable {
     private AddressEntity address;
 
     private List<VisitEntity> visits;
+
+    private Gender gender;
 
     public Long getId() {
         return id;
@@ -97,5 +100,13 @@ public class PatientTO implements Serializable {
 
     public void setVisits(List<VisitEntity> visits) {
         this.visits = visits;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

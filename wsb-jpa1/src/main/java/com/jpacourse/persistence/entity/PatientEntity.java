@@ -1,5 +1,7 @@
 package com.jpacourse.persistence.entity;
 
+import com.jpacourse.persistence.enums.Gender;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -42,6 +44,10 @@ public class PatientEntity {
 	/* Relacja jednostronna od strony PatientEntity.
    Pacjent może mieć przypisany jeden adres. */
 	private AddressEntity addressEntity;
+
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
 
 	public Long getId() {
 		return id;
@@ -115,4 +121,11 @@ public class PatientEntity {
 		this.addressEntity = addressEntity;
 	}
 
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 }
