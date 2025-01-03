@@ -12,7 +12,7 @@ public class VisitTO implements Serializable {
 
     private String doctorName;
 
-    private List<TreatmentType> treatments;
+    private List<TreatmentType> treatment;
 
     public LocalDateTime getTime() {
         return time;
@@ -31,10 +31,10 @@ public class VisitTO implements Serializable {
     }
 
     public List<TreatmentType> getTreatments() {
-        return treatments;
+        return treatment;
     }
 
     public void setTreatments(List<TreatmentType> treatments) {
-        this.treatments = treatments;
+        this.treatment = treatments;
     }
 }
