@@ -16,14 +16,15 @@ VALUES
     ('Ronald', 'Weasley', '456789123', 'ronald.weasley@hogwarts.com', 'P003', '1980-03-01', 3, 'MALE'),
     ('Ginny', 'Weasley', '321654987', 'ginny.weasley@hogwarts.com', 'P004', '1981-08-11', 3, 'FEMALE'),
     ('Neville', 'Longbottom', '111222333', 'neville.longbottom@hogwarts.com', 'P005', '1980-07-30', 4, 'MALE'),
-    ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6, 'FEMALE');
+    ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6, 'FEMALE'),
+    ('Jan', 'Kowalski', '1112213432', 'jan.lovegood@hogwarts.com', 'P007', '1981-02-13', 6, 'MALE');
 
 -- Insert data into DOCTOR table
 INSERT INTO DOCTOR (first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)
 VALUES
-    ('Poppy', 'Pomfrey', '222333444', 'poppy.pomfrey@hogwarts.com', 'D001', 'Magic', 4),
-    ('Albus', 'Dumbledore', '111222333', 'albus.dumbledore@hogwarts.com', 'D002', 'Magic', 4),
-    ('Severus', 'Snape', '444555666', 'severus.snape@hogwarts.com', 'D003', 'Magic', 5);
+    ('Poppy', 'Pomfrey', '222333444', 'poppy.pomfrey@hogwarts.com', 'D001', 'MAGIC', 4),
+    ('Albus', 'Dumbledore', '111222333', 'albus.dumbledore@hogwarts.com', 'D002', 'MAGIC', 4),
+    ('Severus', 'Snape', '444555666', 'severus.snape@hogwarts.com', 'D003', 'MAGIC', 5);
 
 -- Insert data into VISIT table
 INSERT INTO VISIT (description, time, doctor_id, patient_id)

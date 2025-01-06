@@ -5,7 +5,6 @@ import com.jpacourse.persistence.dao.PatientDao;
 import com.jpacourse.persistence.dao.VisitDao;
 import com.jpacourse.persistence.entity.PatientEntity;
 import com.jpacourse.persistence.entity.VisitEntity;
-import com.jpacourse.service.PatientService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,7 @@ public class PatientServiceTest {
 
         // given
         final PatientEntity patientEntity = patientDao.findOne(1L);
+        assertThat(patientEntity.getVisits()).hasSize(1);
         final VisitEntity visitEntity = patientEntity.getVisits().get(0);
 
         Long patientId = patientEntity.getId();
