@@ -38,5 +38,5 @@ jobs:
               working-directory: wsb-jpa1
 
             - name: Run tests
-              run: mvn test -DtestSourceDirectory=src/main/java
+              run: mvn test -DtestSourceDirectory=src/main/test/java
               working-directory: wsb-jpa1
