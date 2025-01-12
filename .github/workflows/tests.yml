@@ -31,12 +31,12 @@ jobs:
                       ${{ runner.os }}-maven-
 
             - name: Navigate to project directory
-              run: cd wsb_jpa
+              run: cd wsb-jpa1
 
             - name: Build with Maven
               run: mvn -B clean install -DskipTests
-              working-directory: wsb_jpa
+              working-directory: wsb-jpa1
 
             - name: Run tests
               run: mvn test
-              working-directory: wsb_jpa
+              working-directory: wsb-jpa1
