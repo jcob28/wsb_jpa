@@ -30,8 +30,13 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-maven-
 
+            - name: Navigate to project directory
+              run: cd wsb_jpa
+
             - name: Build with Maven
               run: mvn -B clean install -DskipTests
+              working-directory: wsb_jpa
 
             - name: Run tests
               run: mvn test
+              working-directory: wsb_jpa
