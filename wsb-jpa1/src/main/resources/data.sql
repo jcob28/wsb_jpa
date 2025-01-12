@@ -6,7 +6,10 @@ VALUES
     ('Ottery St Catchpole', 'The Burrow', NULL, 'EX11 1RQ'),
     ('Hogsmeade', 'Hogwarts School of Witchcraft and Wizardry', NULL, 'HS2 3ZZ'),
     ('Hogsmeade', 'Snape’s Cottage', 'Spinner’s End', 'HS2 2AA'),
-    ('Ottery St Catchpole', 'Lovegood House', NULL, 'EX11 1RQ');
+    ('Ottery St Catchpole', 'Lovegood House', NULL, 'EX11 1RQ'),
+    ('Hogsmeade', 'Pomfrey’s House', 'NULL', 'HS2 2AB'),
+    ('Warsaw', 'Hoza 1', NULL, '00-500');
+
 
 -- Insert data into PATIENT table
 INSERT INTO PATIENT (first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, gender)
@@ -14,15 +17,14 @@ VALUES
     ('Harry', 'Potter', '123456789', 'harry.potter@hogwarts.com', 'P001', '1980-07-31', 1, 'MALE'),
     ('Hermione', 'Granger', '987654321', 'hermione.granger@hogwarts.com', 'P002', '1979-09-19', 2, 'FEMALE'),
     ('Ronald', 'Weasley', '456789123', 'ronald.weasley@hogwarts.com', 'P003', '1980-03-01', 3, 'MALE'),
-    ('Ginny', 'Weasley', '321654987', 'ginny.weasley@hogwarts.com', 'P004', '1981-08-11', 3, 'FEMALE'),
     ('Neville', 'Longbottom', '111222333', 'neville.longbottom@hogwarts.com', 'P005', '1980-07-30', 4, 'MALE'),
     ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6, 'FEMALE'),
-    ('Jan', 'Kowalski', '1112213432', 'jan.lovegood@hogwarts.com', 'P007', '1981-02-13', 6, 'MALE');
+    ('Jan', 'Kowalski', '1112213432', 'jan.lovegood@hogwarts.com', 'P007', '1981-02-13', 8, 'MALE');
 
 -- Insert data into DOCTOR table
 INSERT INTO DOCTOR (first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)
 VALUES
-    ('Poppy', 'Pomfrey', '222333444', 'poppy.pomfrey@hogwarts.com', 'D001', 'MAGIC', 4),
+    ('Poppy', 'Pomfrey', '222333444', 'poppy.pomfrey@hogwarts.com', 'D001', 'MAGIC', 7),
     ('Albus', 'Dumbledore', '111222333', 'albus.dumbledore@hogwarts.com', 'D002', 'MAGIC', 4),
     ('Severus', 'Snape', '444555666', 'severus.snape@hogwarts.com', 'D003', 'MAGIC', 5);
 
@@ -34,7 +36,9 @@ VALUES
     ('Burn healing from a magical fire', '2024-01-20 14:00:00', 1, 3),
     ('Concussion from Quidditch accident', '2024-02-05 10:00:00', 1, 4),
     ('Allergic reaction to Mandrake leaves', '2024-02-15 13:00:00', 3, 5),
-    ('Headache from Wrackspurt infestation', '2024-03-01 12:00:00', 1, 6);
+    ('Headache from Wrackspurt infestation', '2024-03-01 12:00:00', 1, 5),
+    ('Headache from Wrackspurt infestation - Continuation', '2024-04-01 09:00:00', 2, 5);
+
 
 -- Insert data into MEDICAL_TREATMENT table
 INSERT INTO MEDICAL_TREATMENT (description, type)

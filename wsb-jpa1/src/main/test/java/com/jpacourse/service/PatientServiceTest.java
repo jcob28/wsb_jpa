@@ -1,5 +1,6 @@
 package com.jpacourse.service;
 
+import com.jpacourse.dto.VisitTO;
 import com.jpacourse.persistence.dao.DoctorDao;
 import com.jpacourse.persistence.dao.PatientDao;
 import com.jpacourse.persistence.dao.VisitDao;
@@ -12,6 +13,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,8 +37,7 @@ public class PatientServiceTest {
 
     @Transactional
     @Test
-    public void testShouldRemovePatientAndVisitsButNotDoctors() {
-
+    public void testShouldRemovePatientsAndVisitsButNotDoctors() {
         // given
         final PatientEntity patientEntity = patientDao.findOne(1L);
         assertThat(patientEntity.getVisits()).hasSize(1);
@@ -52,6 +54,28 @@ public class PatientServiceTest {
         assertThat(patientDao.findOne(patientId)).isNull();
         assertThat(visitDao.findOne(visitId)).isNull();
         assertThat(doctorDao.findOne(doctorId)).isNotNull();
+    }
+
+    @Transactional
+    @Test
+    public void testShouldFindVisitsByPatientId() {
+        // given
+        Long patientId = 1L;
+        PatientEntity patientEntity = patientDao.findOne(patientId);
+
+        // when
+        List<VisitTO> visits = patientService.findByPatientId(patientId);
+
+        // then
+        assertThat(visits).isNotNull();
+        assertThat(visits).hasSize(patientEntity.getVisits().size());
+
+        for (int i = 0; i < visits.size(); i++) {
+            VisitTO visitTO = visits.get(i);
+            VisitEntity visitEntity = patientEntity.getVisits().get(i);
+            assertThat(visitTO.getTime()).isEqualTo(visitEntity.getTime());
+            assertThat(visitTO.getDoctorName()).isEqualTo(visitEntity.getDoctorEntity().getFirstName() + " " + visitEntity.getDoctorEntity().getLastName());
+        }
     }
 
 }
