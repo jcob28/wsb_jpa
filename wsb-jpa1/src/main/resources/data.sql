@@ -12,14 +12,14 @@ VALUES
 
 
 -- Insert data into PATIENT table
-INSERT INTO PATIENT (first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, gender)
+INSERT INTO PATIENT (first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, gender, version)
 VALUES
-    ('Harry', 'Potter', '123456789', 'harry.potter@hogwarts.com', 'P001', '1980-07-31', 1, 'MALE'),
-    ('Hermione', 'Granger', '987654321', 'hermione.granger@hogwarts.com', 'P002', '1979-09-19', 2, 'FEMALE'),
-    ('Ronald', 'Weasley', '456789123', 'ronald.weasley@hogwarts.com', 'P003', '1980-03-01', 3, 'MALE'),
-    ('Neville', 'Longbottom', '111222333', 'neville.longbottom@hogwarts.com', 'P005', '1980-07-30', 4, 'MALE'),
-    ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6, 'FEMALE'),
-    ('Jan', 'Kowalski', '1112213432', 'jan.lovegood@hogwarts.com', 'P007', '1981-02-13', 8, 'MALE');
+    ('Harry', 'Potter', '123456789', 'harry.potter@hogwarts.com', 'P001', '1980-07-31', 1, 'MALE', 0),
+    ('Hermione', 'Granger', '987654321', 'hermione.granger@hogwarts.com', 'P002', '1979-09-19', 2, 'FEMALE', 0),
+    ('Ronald', 'Weasley', '456789123', 'ronald.weasley@hogwarts.com', 'P003', '1980-03-01', 3, 'MALE',0 ),
+    ('Neville', 'Longbottom', '111222333', 'neville.longbottom@hogwarts.com', 'P005', '1980-07-30', 4, 'MALE',0 ),
+    ('Luna', 'Lovegood', '987123654', 'luna.lovegood@hogwarts.com', 'P006', '1981-02-13', 6, 'FEMALE',0 ),
+    ('Jan', 'Kowalski', '1112213432', 'jan.lovegood@hogwarts.com', 'P007', '1981-02-13', 8, 'MALE', 0);
 
 -- Insert data into DOCTOR table
 INSERT INTO DOCTOR (first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)

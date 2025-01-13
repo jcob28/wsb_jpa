@@ -32,6 +32,9 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
+	@Version
+	private int version;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "PATIENT_ID")
 	/* Relacja jednostronna od strony rodzica (PatientEntity).
@@ -127,5 +130,9 @@ public class PatientEntity {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+
+	public int getVersion() {
+		return version;
 	}
 }

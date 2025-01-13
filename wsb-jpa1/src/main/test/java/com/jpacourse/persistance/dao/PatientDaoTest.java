@@ -8,12 +8,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -73,5 +75,31 @@ public class PatientDaoTest {
         // then
         assertThat(patientDao.findPatientsByGender(gender)).isNotEmpty();
         assertThat(patientDao.findPatientsByGender(gender)).allMatch(patientEntity -> patientEntity.getGender().equals(gender));
+    }
+
+    @Test
+    public void testShouldHandleOptimisticLockingWithSpringException() {
+        // given
+        Long patientId = 6L;
+
+        PatientEntity patientEntity1 = patientDao.findOne(patientId);
+        PatientEntity patientEntity2 = patientDao.findOne(patientId);
+
+        int initialVersion = patientEntity1.getVersion();
+        assertThat(patientEntity2.getVersion()).isEqualTo(initialVersion);
+
+        patientEntity1.setFirstName("Janusz");
+        patientDao.update(patientEntity1);
+
+        PatientEntity updatedEntity = patientDao.findOne(patientId);
+        assertThat(updatedEntity.getVersion()).isEqualTo(initialVersion + 1);
+
+        // when & then
+        assertThatThrownBy(() -> {
+            patientEntity2.setFirstName("Janek");
+            patientDao.update(patientEntity2);
+        }).isInstanceOf(ObjectOptimisticLockingFailureException.class);
+
+        assertThat(patientDao.findOne(patientId).getFirstName()).isEqualTo("Janusz");
     }
 }
