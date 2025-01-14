@@ -90,5 +90,4 @@ public class VisitEntity {
 	public void setTreatments(List<MedicalTreatmentEntity> treatments) {
 		this.treatments = treatments;
 	}
-
 }

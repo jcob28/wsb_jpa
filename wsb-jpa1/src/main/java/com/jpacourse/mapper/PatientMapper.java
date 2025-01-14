@@ -1,8 +1,7 @@
 package com.jpacourse.mapper;
-import com.jpacourse.dto.AddressTO;
+
 import com.jpacourse.dto.PatientTO;
 import com.jpacourse.dto.VisitTO;
-import com.jpacourse.persistence.entity.AddressEntity;
 import com.jpacourse.persistence.entity.MedicalTreatmentEntity;
 import com.jpacourse.persistence.entity.PatientEntity;
 import com.jpacourse.persistence.entity.VisitEntity;
@@ -28,25 +27,6 @@ public final class PatientMapper {
         patientTO.setGender(patientEntity.getGender());
         return patientTO;
     }
-
-    /*
-    public static PatientEntity mapToEntity(final PatientTO patientTO) {
-        if (patientTO == null) {
-            return null;
-        }
-        final PatientEntity patientEntity = new PatientEntity();
-        patientTO.setId(patientTO.getId());
-        patientTO.setFirstName(patientTO.getFirstName());
-        patientTO.setLastName(patientTO.getLastName());
-        patientTO.setTelephoneNumber(patientTO.getTelephoneNumber());
-        patientTO.setEmail(patientTO.getEmail());
-        patientTO.setPatientNumber(patientTO.getPatientNumber());
-        patientTO.setDateOfBirth(patientTO.getDateOfBirth());
-        patientTO.setAddress(patientTO.getAddress());
-        patientTO.setVisits(patientTO.getVisits());
-        patientTO.setGender(patientTO.getGender());
-        return patientEntity;
-    }*/
 
     private static VisitTO mapVisitToTO(final VisitEntity visitEntity) {
         VisitTO visitTO = new VisitTO();

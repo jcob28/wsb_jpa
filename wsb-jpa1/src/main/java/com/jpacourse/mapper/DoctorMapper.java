@@ -3,8 +3,7 @@ package com.jpacourse.mapper;
 import com.jpacourse.dto.DoctorTO;
 import com.jpacourse.persistence.entity.DoctorEntity;
 
-public final class DoctorMapper
-{
+public final class DoctorMapper {
 
     public static DoctorTO mapToTO(final DoctorEntity doctorEntity)
     {

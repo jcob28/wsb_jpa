@@ -86,5 +86,4 @@ public class AddressEntity {
 	public void setDoctorEntity(DoctorEntity doctorEntity) {
 		this.doctorEntity = doctorEntity;
 	}
-
 }

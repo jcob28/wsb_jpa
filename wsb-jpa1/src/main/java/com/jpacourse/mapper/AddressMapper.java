@@ -3,8 +3,7 @@ package com.jpacourse.mapper;
 import com.jpacourse.dto.AddressTO;
 import com.jpacourse.persistence.entity.AddressEntity;
 
-public final class AddressMapper
-{
+public final class AddressMapper {
 
     public static AddressTO mapToTO(final AddressEntity addressEntity)
     {

@@ -113,5 +113,4 @@ public class DoctorEntity {
 	public void setAddressEntity(AddressEntity addressEntity) {
 		this.addressEntity = addressEntity;
 	}
-
 }
